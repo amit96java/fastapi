@@ -30,6 +30,10 @@ To Install Oracle Libs:
 
     C:\PycharmProjects\fastapi> pip install cx_Oracle
 
+To Install Postgres:
+
+     pip install psycopg2
+    
 Python ORM:
 
     Sqlalchemy is one of the most popular python ORMs
@@ -123,3 +127,13 @@ Set Config Files for postgres
 13:26:13
 
     Dockerize the application
+
+13:48:34
+
+    postgres container => very good container
+
+To Install PyTest
+
+    pip install pytest
+
+14:36
