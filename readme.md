@@ -84,7 +84,7 @@ Ubuntu VM:
     sudo apt install postgresql postgresql-contrib -y
     psql --version
     psql --help
-    psql -U postgres
+    psql -U postgres => login as postgres user
     whoami
     sudo cat /etc/passwd => to see users (postgres user created by postgres lib)
     sudo su
@@ -93,7 +93,33 @@ Ubuntu VM:
     cd /etc/postgresql (whatever package installed in ubuntu , installed inside etc folder)
     To Restart Postgresql
          sudo /etc/init.d/postgresql restart
-    
+    To change password
+    postgres=# \password postgres               (root)
+    \q => to come out postgres command line
+
+Set Config Files for postgres
+
+    postgres@steve:~$ cd /etc/postgresql/12/main/
+    postgres@steve:/etc/postgresql/12/main$ nano postgresql.conf
+    Look for connections and authentication
+        listen_addresses = '*' (* will allow to connect any postgres server not only localhost)
+    nano pg_hba.conf
+        chage local method from peer to md5
+        # Database administrative login by Unix domain socket
+        local   all             postgres                                md5
+        ![img.png](img.png)
+    after updating the file restart the postgres server.
+
 12:17=> i'm unable to run postgres on ubuntu server
 
     solution: restart the postgres server.
+
+13:04:49
+
+    NGINX on ubuntu
+        High performance webserver that can act as a proxy
+        Can handle SSL termination
+
+13:26:13
+
+    Dockerize the application
