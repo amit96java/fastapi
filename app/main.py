@@ -21,7 +21,7 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(sqlalchemy.router)
 
-@app.get("/")
+@app.get("/",status_code=status.HTTP_201_CREATED)
 async def root():
     return {"message":"Hello World!!!!"}
 

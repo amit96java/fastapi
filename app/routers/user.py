@@ -6,7 +6,8 @@ from typing import List
 
 router=APIRouter(prefix="/u",tags=['User'])
 
-@router.post("/users",status_code=status.HTTP_201_CREATED,response_model=List[dto.UserResponse])
+#response_model=List[dto.UserResponse]
+@router.post("/users",status_code=status.HTTP_201_CREATED,response_model=dto.UserResponse)
 def create_user(user:dto.UserCreate,db:Session=Depends(get_db)):
 
     #hash the password - user.password
@@ -17,7 +18,7 @@ def create_user(user:dto.UserCreate,db:Session=Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    return {new_user}
+    return new_user
 
 @router.get("/users/{id}",response_model=dto.UserResponse)
 def get_user(id:int,db:Session=Depends(get_db)):
