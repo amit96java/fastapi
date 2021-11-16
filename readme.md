@@ -1,3 +1,7 @@
+To Create Virtual environment for every project:
+
+     C:\PycharmProjects\fastapi>py -3 -m venv venv
+
 Install FastApi:
 
     pip install fastapi[all]
@@ -138,4 +142,5 @@ To Install PyTest
 
 14:36
 
-15:37:25
+15:37:25 (fixture)
+16:07
