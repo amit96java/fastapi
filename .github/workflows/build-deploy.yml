@@ -3,7 +3,7 @@ name: Build and Deploy Code
 on: [push,pull_request]
 
 jobs:
-  job1:
+  job1-build:
     runs-on: ubuntu-latest
     steps:
       - name: pulling fit repos
@@ -43,3 +43,10 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+  job2-deploy:
+    runs-on: ubuntu-latest
+    needs: [job1-build]
+    steps:
+      - name: deploy to azure app service
+        run: echo "azure app service"
+
